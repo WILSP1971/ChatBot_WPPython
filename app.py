@@ -66,7 +66,7 @@ def verificar_token(req):
     if challenge and token == TOKEN_TWSCODE:
         return challenge
     else:
-        return jsonify({'error':'TOKEN INVALIDO'}),401
+        return jsonify({'error':'TOKEN INVALIDO revise'}),401
     
 ## Recepcion de Mensajes WhatApps
 def recibir_mensajes(req):
