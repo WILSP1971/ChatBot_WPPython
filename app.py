@@ -206,7 +206,7 @@ def enviar_datos(datos,number):
 
 ## Funcion Verifica Cedula en BD
 def traer_datoscedula(nocedula,number):
-    api_url = "https://appsintranet.grupocampbell.com/ApiCampbell/api/Pacientes"
+    api_url = "https://appsintranet.esculapiosis.com/ApiCampbell/api/Pacientes"
     params = {"CodigoEmp": "C30", "criterio": nocedula}
     responget = requests.get(api_url, params=params)
     arraydata = responget.json()
@@ -228,7 +228,7 @@ def traer_datoscedula(nocedula,number):
             if numero == "1":
                 datospac = item["Paciente"]
 
-        api_url = "https://appsintranet.grupocampbell.com/ApiCampbell/api/CitasProgramadas"
+        api_url = "https://appsintranet.esculapiosis.com/ApiCampbell/api/CitasProgramadas"
         params = {"CodigoEmp": "C30", "criterio": nocedula}
         responget = requests.get(api_url, params=params)
         arraydata = responget.json()
@@ -284,7 +284,7 @@ def mostrar_citas(nocedula,number,tipo):
     Medico = ""
 
     if "btn_cedsi" in tipo:
-        api_url = "https://appsintranet.grupocampbell.com/ApiCampbell/api/CitasProgramadas"
+        api_url = "https://appsintranet.esculapiosis.com/ApiCampbell/api/CitasProgramadas"
         params = {"CodigoEmp": "C30", "criterio": nocedula}
         responget = requests.get(api_url, params=params)
         arraydata = responget.json()
