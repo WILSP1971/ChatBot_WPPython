@@ -206,7 +206,7 @@ def enviar_datos(datos,number):
 
 ## Funcion Verifica Cedula en BD
 def traer_datoscedula(nocedula,number):
-    api_url = "https://appsintranet.esculapiosis.com/ApiCampbell/api/Pacientes"
+    api_url = "https://appsintranet.grupocampbell.com/ApiCampbell/api/Pacientes"
     params = {"CodigoEmp": "C30", "criterio": nocedula}
     responget = requests.get(api_url, params=params)
     arraydata = responget.json()
@@ -228,7 +228,7 @@ def traer_datoscedula(nocedula,number):
             if numero == "1":
                 datospac = item["Paciente"]
 
-        api_url = "https://appsintranet.esculapiosis.com/ApiCampbell/api/CitasProgramadas"
+        api_url = "https://appsintranet.grupocampbell.com/ApiCampbell/api/CitasProgramadas"
         params = {"CodigoEmp": "C30", "criterio": nocedula}
         responget = requests.get(api_url, params=params)
         arraydata = responget.json()
@@ -358,18 +358,19 @@ def Connect_META(data):
     ## Conexion META
     headers = {
         "Content-Type" : "application/json",
-        "Authorization" : "Bearer EAAIRCKAm0LYBO7jnTeTdbod5i62Df9jZA58E3BtivfZAYhYiqwdEiO6XbYNqn4DHyzJ2ZA6LHOlCPAxxPdOidxq1y9zYVIgELE7scYB0bfaWKZB9ZAVz2rZAZBG7ozoTYCgudomvc5rRyvn9nse7Q1zLqi0NEErhJKa0GeaPR8QOgksA4vZBG6Lewegq33PI2w6FYmVsxFVu22b8Ua5QZC9zTS2gZD"
+        "Authorization" : "Bearer EAAIRCKAm0LYBOZC3fZAB7fy6JNzb9TImthZA4F9ZCUEOvzZBYVgJZAAAygICWXBZCvAe8K7kYB2fF8OWIxZAHTxVkeAs0HVlB89Y9JcaB5KAAlzoZBP7yyuYXTB1FEZCKeqCkkdtnGdocMtksNXwfonmZAUwNcWbpHuHlsG5ZCi5AWV7JuDTH2YZCDyUdltlpUwU1tRRXG4x3V4VHFAtAZBZAsGDF4A"
     }
     connection = http.client.HTTPSConnection("graph.facebook.com")
 
     try:
-        connection.request("POST","/v21.0/489807960875135/messages", data, headers)
+        connection.request("POST","/v22.0/489807960875135/messages", data, headers)
         response = connection.getresponse()
         print(response.status, response.reason)
     except Exception as e:
         agregar_mensajes_log(json.dumps(e))
     finally:
         connection.close()
+
 
 ## Ejecucion en Entorno Virtual
 if __name__ == '__main__':
